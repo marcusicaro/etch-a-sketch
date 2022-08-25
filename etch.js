@@ -11,10 +11,10 @@ container.classList.add('container');
 body.appendChild(container);
 
 const buttonAttributes = document.querySelector('button');
-buttonAttributes.setAttribute('onclick', 'setGrindSize()');
 
 
-var squareNumber = prompt("Please, enter a number from 1 to 100");
+
+
 
 // function checkNumber(squareNumber){
 //     if(squareNumber < 1 || squareNumber > 100){
@@ -28,6 +28,8 @@ var squareNumber = prompt("Please, enter a number from 1 to 100");
 //checkNumber(squareNumber);
 
 function sketchStart(){
+
+    var squareNumber = prompt("Please, enter a number from 1 to 100");
 
     if (squareNumber > 1 && squareNumber < 100){
     function squareFunction(squareNumber){
@@ -63,6 +65,13 @@ function sketchStart(){
     blackSelector.forEach(square => square.addEventListener("mouseenter", () => {
         square.style.background = 'black';
     }));
+
+    
+
+
+ 
+    
+
     }
 
 
@@ -72,5 +81,16 @@ function sketchStart(){
         }
 
 }
+
+var blackSelector = document.querySelectorAll('.square')
+
+function squareRemover(){
+    while (container.firstChild){
+        container.removeChild(container.lastChild);
+    }
+    return sketchStart();
+}
+
+buttonAttributes.setAttribute('onclick', 'squareRemover()');
 
 sketchStart();
